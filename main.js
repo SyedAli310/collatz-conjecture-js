@@ -108,21 +108,28 @@ function makeChart(data,inputVal) {
     return myChart;
 }
 
-$("#main-form").on("submit", async (e) => {
-  e.preventDefault();
-  const result = await getCollatzConjectureOutput($("#number-input").val());
+// check and clear chart
+function clearChart() {
+  if (prevChart != null) {
+    prevChart.destroy();
+  }
+}
+
+// show output to html
+async function showOutput(inp){
+  const result = await getCollatzConjectureOutput(localStorage.getItem('inputVal') || inp);
   console.log(result);
   if (result.error) {
     alert(result.errorMsg);
   } else {
-    if (prevChart) {
-        prevChart.destroy();
-    }
-    prevChart = makeChart(result,$("#number-input").val());
+    clearChart();
+    prevChart = makeChart(result,localStorage.getItem('inputVal') || inp);
     const resSeriesOutput = result.resultSeries.join(" <i class='fas fa-arrow-right fa-sm text-success m-2'></i> ");
     $("#output").html(`
+    <hr class="bg-light">
     <div class='w-100'>
-        <h1 class='d-flex justify-content-center align-items-start'>Series<span class='badge badge-dark badge-pill text-success' style='font-size:small !important;'>&nbsp;Highest Value - ${Math.max(...result.resultSeries)}</span></h1>
+        <h1 class='text-center'>Series</h1>
+        <h4 class='text-center'><span class='badge badge-dark badge-pill text-success '>Highest Value - ${Math.max(...result.resultSeries)}</span></h4>
         <h5 class='d-flex justify-content-evenly align-items-center flex-wrap'>${resSeriesOutput}</h5>
     </div>
     `);
@@ -137,4 +144,11 @@ $("#main-form").on("submit", async (e) => {
     </div>
     `);
   }
+}
+
+$("#main-form").on("submit", async (e) => {
+  e.preventDefault();
+  const inp = $("#number-input").val();
+  localStorage.setItem("inputVal", inp);
+  showOutput(inp);
 });
