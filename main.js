@@ -156,7 +156,7 @@ $("#main-form").on("submit", async (e) => {
 });
 
 window.onload = () => {
-  if(localStorage.getItem('inputVal') && !localStorage.getItem('inputVal') <=0 && !isNaN(localStorage.getItem('inputVal'))) {
+  if(localStorage.getItem('inputVal') && !(parseInt(localStorage.getItem('inputVal'))<=0) && !isNaN(localStorage.getItem('inputVal'))) {
     showOutput(localStorage.getItem('inputVal'));
   }
 }
