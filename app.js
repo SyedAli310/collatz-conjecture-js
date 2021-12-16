@@ -193,7 +193,7 @@ async function showOutput(inp) {
     $("#output").html(`
     <hr class="bg-light">
     <div class='w-100'>
-        <h1 class='text-center'>Series</h1>
+        <h1 class='text-center'>Steps</h1>
         <h4 class='text-center'><span class='badge badge-dark badge-pill text-success '>Highest Value - ${Math.max(
           ...result.resultSeries
         )}</span></h4>
@@ -201,7 +201,7 @@ async function showOutput(inp) {
     </div>
     `);
     $("#stats").html(`
-    <div class='w-100 text-center'>
+    <div class='w-100 text-center' style='user-select:none;'>
         <h1>Stats</h1>
 
         <p class='text-primary'>
