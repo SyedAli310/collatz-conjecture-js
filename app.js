@@ -1,5 +1,8 @@
+// selectors
 const showHideSeriesBtnSpan = document.querySelector(".show-hide-series span");
 const showHideSeriesBtnIcon = document.querySelector(".show-hide-series i");
+
+// gloabal variables
 let prevChart = null;
 let prevChartEvenOdd = null;
 
