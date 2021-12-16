@@ -165,6 +165,20 @@ async function showOutput(inp) {
     $("#counts").html(`
     <div class='w-100 text-center'>
         <h1>Counts</h1>
+
+        <p class='text-primary'>
+        <i>The Collatz Conjecture of the number 
+        <b class='text-success'>${result.inputValCopy}</b> 
+        took a total of 
+        <b class='text-warning'>${result.totalSteps}</b> 
+        steps to reach 1 including 
+        <b class='text-light'>${result.evenSteps}</b> 
+        even steps and 
+        <b class='text-light'>${result.oddSteps}</b> 
+        odd steps
+        </i>
+        </p>
+
         <p class='d-inline-block bg-dark p-2 rounded'>Odd Steps: ${result.oddSteps} </p>
         <i class='fas fa-plus'></i>
         <p class='d-inline-block bg-dark p-2 rounded'>Even Steps: ${result.evenSteps} </p>
