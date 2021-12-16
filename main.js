@@ -158,12 +158,14 @@ $("#main-form").on("submit", async (e) => {
 $(".show-hide-series").on('click',()=>{
   if($('.show-hide-series').text()=="Show Series"){
     $('.show-hide-series').text("Hide Series");
+    setTimeout(()=>{
+      $('html,body').animate({scrollTop: $("#output").offset().top}, 'slow');
+    },100)
   }
   else if($('.show-hide-series').text()=="Hide Series"){
     $('.show-hide-series').text("Show Series");
   }
 
-  $('html,body').animate({scrollTop: $("#output").offset().top}, 'slow');
 
 })
 
