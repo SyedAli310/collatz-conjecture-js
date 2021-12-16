@@ -206,7 +206,7 @@ async function showOutput(inp) {
 
         <p class='text-primary'>
         <i>The Collatz Conjecture of the number 
-        <b class='text-success'>${result.inputValCopy}</b> 
+        <b class='text-success'>${result.inputValue}</b> 
         took a total of 
         <b class='text-warning'>${result.totalSteps}</b> 
         steps to reach 1 including 
