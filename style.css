@@ -1,39 +1,41 @@
-body{
-    background-color: #001b1b;
+body {
+  background-color: #001b1b;
 }
-p{
-    word-break: break-all;
-}
-
-.btn{
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
+p {
+  word-break: break-all;
 }
 
-.btn:focus,.btn:active {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
- }
-
-
-.form-control:focus,.form-control:active {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
- }
-.form-control{
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
- }
-
-.modal-header, .modal-footer{
-    border: none;
+.btn {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
-.show-hide-series{
-    position: sticky;
-    bottom: 1rem;
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.form-control:focus,
+.form-control:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.form-control {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.show-hide-series {
+  position: sticky;
+  bottom: 1rem;
 }
