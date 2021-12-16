@@ -204,14 +204,12 @@ async function showOutput(inp) {
       " <i class='fas fa-arrow-right fa-sm text-success m-2'></i> "
     );
     $(".collatz-head").html(
-      `Collatz Conjecture Plot for <span class='text-success'>${
+      `Collatz Conjecture Plots for <span class='text-success'>${
         localStorage.getItem("inputVal") || inp
       }</span>`
     );
     $(".collatz-even-odd-head").html(
-      `Even Odd Distribution of Collatz Conjecture for <span class='text-success'>${
-        localStorage.getItem("inputVal") || inp
-      }</span>`
+      `Even-Odd Distribution Plot<span class='text-success'></span>`
     );
     $("#output").html(`
     <hr class="bg-light">
