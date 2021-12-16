@@ -251,7 +251,7 @@ $(".show-hide-series").on("click", () => {
 window.onload = () => {
   if (
     localStorage.getItem("inputVal") &&
-    !(parseInt(localStorage.getItem("inputVal")) <= 0) &&
+    (Number(localStorage.getItem("inputVal")) > 0) &&
     !isNaN(localStorage.getItem("inputVal"))
   ) {
     $("#number-input").val(localStorage.getItem("inputVal"));
