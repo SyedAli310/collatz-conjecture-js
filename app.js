@@ -1,5 +1,6 @@
 const showHideSeriesBtn = document.querySelector(".show-hide-series");
 let prevChart = null;
+let prevChartEvenOdd = null;
 
 // function to calculate collatz sequence
 async function getCollatzConjectureOutput(inputVal) {
@@ -109,13 +110,67 @@ function makeChart(data, inputVal) {
       },
     },
   });
+
   return myChart;
 }
 
+function makeEvenOddPieChart(data,inputVal){
+  const evenOddData = [data.evenSteps, data.oddSteps];
+  var ctx2 = document.getElementById("myChartPie").getContext("2d");
+  var myChartPie = new Chart(ctx2, {
+    type: "pie",
+    // plugins: [plugin],
+    data: {
+      labels: ['Even Steps', 'Odd Steps'],
+      datasets: [
+        {
+          label: 'Even - Odd Steps Distribution for ' + inputVal,
+          data: evenOddData,
+          backgroundColor: ['#fd7e14', '#6610f2'],
+          // borderWidth: 1,
+          // fill: true,
+        },
+      ],
+    },
+    // options: {
+    //   legend: {
+    //     labels: {
+    //       fontColor: "lightgreen",
+    //       fontSize: 10,
+    //     },
+    //   },
+    //   scales: {
+    //     yAxes: [
+    //       {
+    //         ticks: {
+    //           fontColor: "lightgreen",
+    //           fontSize: 10,
+    //           precision: 0,
+    //           beginAtZero: true,
+    //         },
+    //       },
+    //     ],
+    //     xAxes: [
+    //       {
+    //         ticks: {
+    //           fontColor: "lightgreen",
+    //           precision: 0,
+    //           beginAtZero: true,
+    //           fontSize: 10,
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
+  });
+  return myChartPie;
+}
+
 // check and clear chart
-function clearChart() {
-  if (prevChart != null) {
+function clearCharts() {
+  if (prevChart != null && prevChartEvenOdd != null) {
     prevChart.destroy();
+    prevChartEvenOdd.destroy();
   }
 }
 
@@ -142,13 +197,19 @@ async function showOutput(inp) {
   } else {
     $("#errModal").modal("hide");
     $("#number-input").val(localStorage.getItem("inputVal"));
-    clearChart();
+    clearCharts();
     prevChart = makeChart(result, localStorage.getItem("inputVal") || inp);
+    prevChartEvenOdd = makeEvenOddPieChart(result, localStorage.getItem("inputVal") || inp);
     const resSeriesOutput = result.resultSeries.join(
       " <i class='fas fa-arrow-right fa-sm text-success m-2'></i> "
     );
     $(".collatz-head").html(
       `Collatz Conjecture Plot for <span class='text-success'>${
+        localStorage.getItem("inputVal") || inp
+      }</span>`
+    );
+    $(".collatz-even-odd-head").html(
+      `Even Odd Distribution of Collatz Conjecture for <span class='text-success'>${
         localStorage.getItem("inputVal") || inp
       }</span>`
     );
@@ -183,7 +244,7 @@ async function showOutput(inp) {
         <i class='fas fa-plus'></i>
         <p class='d-inline-block bg-dark p-2 rounded'>Even Steps: ${result.evenSteps} </p>
         <i class='fas fa-equals'></i>
-        <p class='d-inline-block bg-dark p-2 rounded'>Total Steps: ${result.totalSteps}</p>
+        <p class='d-inline-block bg-dark p-2 rounded'>Total Steps: <span class='text-warning'>${result.totalSteps}</span></p>
     </div>
     `);
   }
