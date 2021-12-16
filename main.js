@@ -120,7 +120,8 @@ async function showOutput(inp){
   const result = await getCollatzConjectureOutput(localStorage.getItem('inputVal') || inp);
   console.log(result);
   if (result.error) {
-    alert(result.errorMsg);
+    $('#errModal .modal-body').html(`<h4 class="text-danger">${result.errorMsg}</h4>`)
+    $("#errModal").modal("show");
   } else {
     clearChart();
     prevChart = makeChart(result,localStorage.getItem('inputVal') || inp);
