@@ -62,3 +62,7 @@ a {
   position: sticky;
   bottom: 1rem;
 }
+
+.show-hide-series i{
+    transition: all ease 300ms;
+}

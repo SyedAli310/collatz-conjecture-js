@@ -1,4 +1,5 @@
-const showHideSeriesBtn = document.querySelector(".show-hide-series");
+const showHideSeriesBtnSpan = document.querySelector(".show-hide-series span");
+const showHideSeriesBtnIcon = document.querySelector(".show-hide-series i");
 let prevChart = null;
 let prevChartEvenOdd = null;
 
@@ -46,7 +47,7 @@ async function getCollatzConjectureOutput(inputVal) {
   }
 }
 
-// function to plot the chart [chart.js]
+// function to plot the collatz conjecture steps chart [chart.js]
 function makeChart(data, inputVal) {
   const plugin = {
     id: "custom_canvas_background_color",
@@ -114,12 +115,12 @@ function makeChart(data, inputVal) {
   return myChart;
 }
 
+// function to make even-ood pie chart
 function makeEvenOddPieChart(data, inputVal) {
   const evenOddData = [data.evenSteps, data.oddSteps];
   var ctx2 = document.getElementById("myChartPie").getContext("2d");
   var myChartPie = new Chart(ctx2, {
     type: "pie",
-    // plugins: [plugin],
     data: {
       labels: ["Even Steps", "Odd Steps"],
       datasets: [
@@ -127,41 +128,9 @@ function makeEvenOddPieChart(data, inputVal) {
           label: "Even - Odd Steps Distribution for " + inputVal,
           data: evenOddData,
           backgroundColor: ["#fd7e14", "#6610f2"],
-          // borderWidth: 1,
-          // fill: true,
         },
       ],
     },
-    // options: {
-    //   legend: {
-    //     labels: {
-    //       fontColor: "lightgreen",
-    //       fontSize: 10,
-    //     },
-    //   },
-    //   scales: {
-    //     yAxes: [
-    //       {
-    //         ticks: {
-    //           fontColor: "lightgreen",
-    //           fontSize: 10,
-    //           precision: 0,
-    //           beginAtZero: true,
-    //         },
-    //       },
-    //     ],
-    //     xAxes: [
-    //       {
-    //         ticks: {
-    //           fontColor: "lightgreen",
-    //           precision: 0,
-    //           beginAtZero: true,
-    //           fontSize: 10,
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
   });
   return myChartPie;
 }
@@ -265,14 +234,16 @@ $("#main-form").on("submit", async (e) => {
 });
 
 $(".show-hide-series").on("click", () => {
-  if (showHideSeriesBtn.innerText == "Show Series") {
-    showHideSeriesBtn.innerText = "Hide Series";
+  if (showHideSeriesBtnSpan.innerText == "Show Steps" && !$(".collapse").hasClass("show")) {
+    showHideSeriesBtnSpan.innerText = "Hide Steps";
+    showHideSeriesBtnIcon.style.transform = "rotate(180deg)";
     localStorage.setItem("showSeries", true);
     setTimeout(() => {
       $("html,body").animate({ scrollTop: $("#output").offset().top }, "slow");
     }, 100);
-  } else if (showHideSeriesBtn.innerText == "Hide Series") {
-    showHideSeriesBtn.innerText = "Show Series";
+  } else if (showHideSeriesBtnSpan.innerText == "Hide Steps" && $(".collapse").hasClass("show")) {
+    showHideSeriesBtnSpan.innerText = "Show Steps";
+    showHideSeriesBtnIcon.style.transform = "rotate(0deg)";
     localStorage.setItem("showSeries", false);
   }
 });
@@ -287,11 +258,13 @@ window.onload = () => {
     showOutput(localStorage.getItem("inputVal"));
   }
   if (localStorage.getItem("showSeries") == "true") {
-    showHideSeriesBtn.innerText = "Hide Series";
+    showHideSeriesBtnSpan.innerText = "Hide Steps";
+    showHideSeriesBtnIcon.style.transform = "rotate(180deg)";
     $(".collapse").addClass("show");
   }
   if (localStorage.getItem("showSeries") == "false") {
-    showHideSeriesBtn.innerText = "Show Series";
+    showHideSeriesBtnSpan.innerText = "Show Steps";
+    showHideSeriesBtnIcon.style.transform = "rotate(0deg)";
     $(".collapse").removeClass("show");
   }
 };
