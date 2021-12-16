@@ -114,19 +114,19 @@ function makeChart(data, inputVal) {
   return myChart;
 }
 
-function makeEvenOddPieChart(data,inputVal){
+function makeEvenOddPieChart(data, inputVal) {
   const evenOddData = [data.evenSteps, data.oddSteps];
   var ctx2 = document.getElementById("myChartPie").getContext("2d");
   var myChartPie = new Chart(ctx2, {
     type: "pie",
     // plugins: [plugin],
     data: {
-      labels: ['Even Steps', 'Odd Steps'],
+      labels: ["Even Steps", "Odd Steps"],
       datasets: [
         {
-          label: 'Even - Odd Steps Distribution for ' + inputVal,
+          label: "Even - Odd Steps Distribution for " + inputVal,
           data: evenOddData,
-          backgroundColor: ['#fd7e14', '#6610f2'],
+          backgroundColor: ["#fd7e14", "#6610f2"],
           // borderWidth: 1,
           // fill: true,
         },
@@ -182,15 +182,22 @@ async function showOutput(inp) {
   );
   console.log(result);
   if (result.error) {
-    const canTry = isNaN(inp) ? Math.abs(inp.charCodeAt(0)) : Math.abs(inp)
-    console.log(typeof(canTry)+' - ',canTry);
+    const canTry = isNaN(inp)
+      ? Math.abs(inp.charCodeAt(Math.floor(Math.random() * inp.length)))
+      : Math.abs(inp);
+    console.log(typeof canTry + " - ", canTry);
     $("#errModal .modal-body .error-view").html(
       `
       <h4>${result.errorMsg}</h4>
-     
-      You entered <u>${isNaN(inp) ? 'string' : 'negative'}</u> <i class='text-danger'>'${localStorage.getItem("inputVal") || inp}'</i>, 
+      You entered <u>${
+        isNaN(inp) ? "string" : "negative"
+      }</u> <i class='text-danger'>'${
+        localStorage.getItem("inputVal") || inp
+      }'</i>
        <br>
-      Try <span class='text-light bg-success p-1 rounded' onclick="showOutput(${Math.abs(canTry)})" title='Enter ${canTry}' style='cursor:pointer;'>${canTry}&nbsp;<i class='fas fa-external-link-alt fa-sm'></i></span>
+      Try <span class='text-light bg-success p-1 rounded' onclick="showOutput(${Math.abs(
+        canTry
+      )})" title='Enter ${canTry}' style='cursor:pointer;'>${canTry}&nbsp;<i class='fas fa-external-link-alt fa-sm'></i></span>
       `
     );
     $("#errModal").modal("show");
@@ -199,7 +206,10 @@ async function showOutput(inp) {
     $("#number-input").val(localStorage.getItem("inputVal"));
     clearCharts();
     prevChart = makeChart(result, localStorage.getItem("inputVal") || inp);
-    prevChartEvenOdd = makeEvenOddPieChart(result, localStorage.getItem("inputVal") || inp);
+    prevChartEvenOdd = makeEvenOddPieChart(
+      result,
+      localStorage.getItem("inputVal") || inp
+    );
     const resSeriesOutput = result.resultSeries.join(
       " <i class='fas fa-arrow-right fa-sm text-success m-2'></i> "
     );
@@ -257,13 +267,13 @@ $("#main-form").on("submit", async (e) => {
 $(".show-hide-series").on("click", () => {
   if (showHideSeriesBtn.innerText == "Show Series") {
     showHideSeriesBtn.innerText = "Hide Series";
-    localStorage.setItem('showSeries', true);
+    localStorage.setItem("showSeries", true);
     setTimeout(() => {
       $("html,body").animate({ scrollTop: $("#output").offset().top }, "slow");
     }, 100);
   } else if (showHideSeriesBtn.innerText == "Hide Series") {
     showHideSeriesBtn.innerText = "Show Series";
-    localStorage.setItem('showSeries', false);
+    localStorage.setItem("showSeries", false);
   }
 });
 
@@ -276,12 +286,12 @@ window.onload = () => {
     $("#number-input").val(localStorage.getItem("inputVal"));
     showOutput(localStorage.getItem("inputVal"));
   }
-  if(localStorage.getItem("showSeries") == "true") {
+  if (localStorage.getItem("showSeries") == "true") {
     showHideSeriesBtn.innerText = "Hide Series";
-    $(".collapse").addClass('show');
-  } 
+    $(".collapse").addClass("show");
+  }
   if (localStorage.getItem("showSeries") == "false") {
     showHideSeriesBtn.innerText = "Show Series";
-    $(".collapse").removeClass('show');
+    $(".collapse").removeClass("show");
   }
 };
