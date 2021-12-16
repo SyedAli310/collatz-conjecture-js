@@ -38,7 +38,7 @@ async function getCollatzConjectureOutput(inputVal) {
 
     return {
       error: false,
-      inputValCopy,
+      inputValue:inputValCopy,
       resultSeries,
       totalSteps,
       oddSteps,
