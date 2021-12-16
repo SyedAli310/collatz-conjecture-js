@@ -1,0 +1,31 @@
+body{
+    background-color: #001b1b;
+}
+p{
+    word-break: break-all;
+}
+
+.btn{
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+ }
+
+
+.form-control:focus,.form-control:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+ }
+.form-control{
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+ }
+

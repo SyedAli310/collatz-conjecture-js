@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple popping game." />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="#" />
+    <!-- <link rel="icon" href="./img/pop.png" type="image/x-icon" /> -->
+  </head>
+
+  <title>Collatz Conjecture Visualization</title>
+
+  <body class="m-3 m-md-4 m-sm-4">
+    <form action="" id="main-form">
+      <p class="text-info">Enter a positive number to find Collatz Conjecture</p>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="bg-dark text-white form-control"
+          placeholder="Enter a positive number..."
+          id="number-input"
+          autocomplete="off"
+          required
+        />
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <canvas
+      id="myChart"
+      style="border-radius: 10px !important; max-height: 70vh !important"
+    ></canvas>
+    <div class="text-white p-2" id="counts">
+      <h1 class="text-center">See Counts</h1>
+    </div>
+    <hr>
+    <div class="text-white p-2" id="output">
+      <h1 class="text-center">See Series</h1>
+    </div>
+  </body>
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="./main.js"></script>
+</html>
