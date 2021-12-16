@@ -171,11 +171,13 @@ $("#main-form").on("submit", async (e) => {
 $(".show-hide-series").on("click", () => {
   if (showHideSeriesBtn.innerText == "Show Series") {
     showHideSeriesBtn.innerText = "Hide Series";
+    localStorage.setItem('showSeries', true);
     setTimeout(() => {
       $("html,body").animate({ scrollTop: $("#output").offset().top }, "slow");
     }, 100);
   } else if (showHideSeriesBtn.innerText == "Hide Series") {
     showHideSeriesBtn.innerText = "Show Series";
+    localStorage.setItem('showSeries', false);
   }
 });
 
@@ -187,5 +189,13 @@ window.onload = () => {
   ) {
     $("#number-input").val(localStorage.getItem("inputVal"));
     showOutput(localStorage.getItem("inputVal"));
+  }
+  if(localStorage.getItem("showSeries") == "true") {
+    showHideSeriesBtn.innerText = "Hide Series";
+    $(".collapse").addClass('show');
+  } 
+  if (localStorage.getItem("showSeries") == "false") {
+    showHideSeriesBtn.innerText = "Show Series";
+    $(".collapse").removeClass('show');
   }
 };
