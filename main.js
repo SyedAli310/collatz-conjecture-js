@@ -138,11 +138,11 @@ async function showOutput(inp){
     $("#counts").html(`
     <div class='w-100 text-center'>
         <h1>Counts</h1>
-        <p class='d-inline-block bg-info p-2 rounded'>Odd Steps: ${result.oddSteps} </p>
+        <p class='d-inline-block bg-dark p-2 rounded'>Odd Steps: ${result.oddSteps} </p>
         <i class='fas fa-plus'></i>
-        <p class='d-inline-block bg-info p-2 rounded'>Even Steps: ${result.evenSteps} </p>
+        <p class='d-inline-block bg-dark p-2 rounded'>Even Steps: ${result.evenSteps} </p>
         <i class='fas fa-equals'></i>
-        <p class='d-inline-block bg-info p-2 rounded'>Total Steps: ${result.totalSteps}</p>
+        <p class='d-inline-block bg-dark p-2 rounded'>Total Steps: ${result.totalSteps}</p>
     </div>
     `);
   }
@@ -154,6 +154,17 @@ $("#main-form").on("submit", async (e) => {
   localStorage.setItem("inputVal", inp);
   showOutput(inp);
 });
+
+$(".show-hide-series").on('click',()=>{
+  if($('.show-hide-series').text()=="Show Series"){
+    $('.show-hide-series').text("Hide Series");
+  }
+  else if($('.show-hide-series').text()=="Hide Series"){
+    $('.show-hide-series').text("Show Series");
+  }
+
+  $("html, body").animate({ scrollTop: "999999999999" });
+})
 
 window.onload = () => {
   if(localStorage.getItem('inputVal') && !(parseInt(localStorage.getItem('inputVal'))<=0) && !isNaN(localStorage.getItem('inputVal'))) {
