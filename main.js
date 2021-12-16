@@ -123,7 +123,7 @@ $("#main-form").on("submit", async (e) => {
     $("#output").html(`
     <div class='w-100'>
         <h1 class='d-flex justify-content-center align-items-start'>Series<span class='badge badge-dark badge-pill text-success' style='font-size:small !important;'>&nbsp;Highest Value - ${Math.max(...result.resultSeries)}</span></h1>
-        <h5 class='text-center'>${resSeriesOutput}</h5>
+        <h5 class='d-flex justify-content-evenly align-items-center'>${resSeriesOutput}</h5>
     </div>
     `);
     $("#counts").html(`
