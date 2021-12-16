@@ -126,6 +126,7 @@ async function showOutput(inp){
     clearChart();
     prevChart = makeChart(result,localStorage.getItem('inputVal') || inp);
     const resSeriesOutput = result.resultSeries.join(" <i class='fas fa-arrow-right fa-sm text-success m-2'></i> ");
+    $(".collatz-head").html(`Collatz Conjecture Plot for <span class='text-success'>${localStorage.getItem('inputVal') || inp}</span>`);
     $("#output").html(`
     <hr class="bg-light">
     <div class='w-100'>
