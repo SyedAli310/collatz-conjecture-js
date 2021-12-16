@@ -163,7 +163,7 @@ $(".show-hide-series").on('click',()=>{
     $('.show-hide-series').text("Show Series");
   }
 
-  $("html, body").animate({ scrollTop: "999999999999" });
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
 })
 
 window.onload = () => {
