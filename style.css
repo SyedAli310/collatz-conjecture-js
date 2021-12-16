@@ -29,7 +29,26 @@ p {
   box-shadow: none !important;
   border: none !important;
 }
-
+.modal-content{
+    text-align: center;
+    background-color: #1b1b1b !important;
+    border: 1.5px solid slateblue;
+}
+.modal-body .error-view{
+    line-height: 2.5 !important;
+}
+.modal-footer .close{
+    opacity: 1 !important;
+    text-shadow: none;
+    background-color: #343A40;
+    border-radius: 4px;
+    font-weight: lighter !important;
+    transition: all ease 300ms;
+}
+.modal-footer .close:hover{
+    transform: scale(1.25);
+    outline: 2px solid slateblue !important;
+}
 .modal-header,
 .modal-footer {
   border: none;

@@ -7,15 +7,17 @@ async function getCollatzConjectureOutput(inputVal) {
   let totalSteps = 0;
   let evenSteps = 0;
   let oddSteps = 0;
-
+  let inputValCopy = Number(inputVal);
   if (inputVal <= 0) {
     return {
       error: true,
+      inputValCopy,
       errorMsg: "input needs to be a positive number",
     };
   } else if (isNaN(inputVal)) {
     return {
       error: true,
+      inputValCopy,
       errorMsg: "input needs to be a number",
     };
   } else {
@@ -34,6 +36,7 @@ async function getCollatzConjectureOutput(inputVal) {
 
     return {
       error: false,
+      inputValCopy,
       resultSeries,
       totalSteps,
       oddSteps,
@@ -118,16 +121,27 @@ function clearChart() {
 
 // show output to html
 async function showOutput(inp) {
+  localStorage.setItem("inputVal", inp);
   const result = await getCollatzConjectureOutput(
     localStorage.getItem("inputVal") || inp
   );
   console.log(result);
   if (result.error) {
-    $("#errModal .modal-body").html(
-      `<h4 class="text-danger">${result.errorMsg}</h4>`
+    const canTry = isNaN(inp) ? Math.abs(inp.charCodeAt(0)) : Math.abs(inp)
+    console.log(typeof(canTry)+' - ',canTry);
+    $("#errModal .modal-body .error-view").html(
+      `
+      <h4>${result.errorMsg}</h4>
+     
+      You entered <u>${isNaN(inp) ? 'string' : 'negative'}</u> <i class='text-danger'>'${localStorage.getItem("inputVal") || inp}'</i>, 
+       
+      Try <span class='text-light bg-success p-1 rounded' onclick="showOutput(${Math.abs(canTry)})" style='cursor:pointer;'>${canTry}&nbsp;<i class='fas fa-external-link-alt fa-sm'></i></span>
+      `
     );
     $("#errModal").modal("show");
   } else {
+    $("#errModal").modal("hide");
+    $("#number-input").val(localStorage.getItem("inputVal"));
     clearChart();
     prevChart = makeChart(result, localStorage.getItem("inputVal") || inp);
     const resSeriesOutput = result.resultSeries.join(
@@ -164,7 +178,6 @@ async function showOutput(inp) {
 $("#main-form").on("submit", async (e) => {
   e.preventDefault();
   const inp = $("#number-input").val();
-  localStorage.setItem("inputVal", inp);
   showOutput(inp);
 });
 
