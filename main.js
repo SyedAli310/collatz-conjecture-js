@@ -137,9 +137,9 @@ async function showOutput(inp){
     <div class='w-100 text-center'>
         <h1>Counts</h1>
         <p class='d-inline-block bg-info p-2 rounded'>Odd Steps: ${result.oddSteps} </p>
-        <span>+</span>
+        <i class='fas fa-plus'></i>
         <p class='d-inline-block bg-info p-2 rounded'>Even Steps: ${result.evenSteps} </p>
-        <span>=</span>
+        <i class='fas fa-equals'></i>
         <p class='d-inline-block bg-info p-2 rounded'>Total Steps: ${result.totalSteps}</p>
     </div>
     `);
