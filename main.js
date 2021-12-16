@@ -1,3 +1,4 @@
+const showHideSeriesBtn = document.querySelector(".show-hide-series");
 let prevChart = null;
 
 // function to calculate collatz sequence
@@ -168,13 +169,13 @@ $("#main-form").on("submit", async (e) => {
 });
 
 $(".show-hide-series").on("click", () => {
-  if ($(".show-hide-series").text() == "Show Series") {
-    $(".show-hide-series").text("Hide Series");
+  if (showHideSeriesBtn.innerText == "Show Series") {
+    showHideSeriesBtn.innerText = "Hide Series";
     setTimeout(() => {
       $("html,body").animate({ scrollTop: $("#output").offset().top }, "slow");
     }, 100);
-  } else if ($(".show-hide-series").text() == "Hide Series") {
-    $(".show-hide-series").text("Show Series");
+  } else if (showHideSeriesBtn.innerText == "Hide Series") {
+    showHideSeriesBtn.innerText = "Show Series";
   }
 });
 
