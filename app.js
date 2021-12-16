@@ -162,9 +162,9 @@ async function showOutput(inp) {
         <h5 class='d-flex justify-content-evenly align-items-center flex-wrap'>${resSeriesOutput}</h5>
     </div>
     `);
-    $("#counts").html(`
+    $("#stats").html(`
     <div class='w-100 text-center'>
-        <h1>Counts</h1>
+        <h1>Stats</h1>
 
         <p class='text-primary'>
         <i>The Collatz Conjecture of the number 

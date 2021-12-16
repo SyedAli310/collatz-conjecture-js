@@ -1,9 +1,7 @@
 body {
   background-color: #001b1b;
 }
-/* p {
-  word-break: break-all;
-} */
+
 .collatz-head{
     word-break: break-all;
 }
