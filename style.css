@@ -32,3 +32,8 @@ p{
 .modal-header, .modal-footer{
     border: none;
 }
+
+.show-hide-series{
+    position: sticky;
+    bottom: 1rem;
+}
