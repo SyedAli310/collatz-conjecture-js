@@ -153,3 +153,9 @@ $("#main-form").on("submit", async (e) => {
   localStorage.setItem("inputVal", inp);
   showOutput(inp);
 });
+
+window.onload = () => {
+  if(localStorage.getItem('inputVal') && !localStorage.getItem('inputVal') <=0 && !isNaN(localStorage.getItem('inputVal'))) {
+    showOutput(localStorage.getItem('inputVal'));
+  }
+}
