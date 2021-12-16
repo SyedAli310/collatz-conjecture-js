@@ -134,8 +134,8 @@ async function showOutput(inp) {
       <h4>${result.errorMsg}</h4>
      
       You entered <u>${isNaN(inp) ? 'string' : 'negative'}</u> <i class='text-danger'>'${localStorage.getItem("inputVal") || inp}'</i>, 
-       
-      Try <span class='text-light bg-success p-1 rounded' onclick="showOutput(${Math.abs(canTry)})" style='cursor:pointer;'>${canTry}&nbsp;<i class='fas fa-external-link-alt fa-sm'></i></span>
+       <br>
+      Try <span class='text-light bg-success p-1 rounded' onclick="showOutput(${Math.abs(canTry)})" title='Enter ${canTry}' style='cursor:pointer;'>${canTry}&nbsp;<i class='fas fa-external-link-alt fa-sm'></i></span>
       `
     );
     $("#errModal").modal("show");

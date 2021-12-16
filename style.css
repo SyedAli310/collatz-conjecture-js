@@ -41,12 +41,13 @@ p {
     opacity: 1 !important;
     text-shadow: none;
     background-color: #343A40;
+    outline: 2px solid #343A40 !important;
     border-radius: 4px;
     font-weight: lighter !important;
     transition: all ease 300ms;
 }
 .modal-footer .close:hover{
-    transform: scale(1.25);
+    transform: scale(1.025);
     outline: 2px solid slateblue !important;
 }
 .modal-header,
