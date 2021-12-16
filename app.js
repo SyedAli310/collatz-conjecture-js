@@ -70,9 +70,9 @@ function makeChart(data, inputVal) {
         {
           label: `Collatz Conjecture Plot for ${inputVal}`,
           data: data.resultSeries,
-          pointBackgroundColor: "hsl(48, 100%, 67%)",
-          backgroundColor: "rgba(0, 181, 300, 0.24)",
-          borderColor: "hsl(348, 100%, 61%)",
+          pointBackgroundColor: "#dc3545",
+          backgroundColor: "rgba(6, 18, 50, 0.4)",
+          borderColor: "lightblue",
           hoverBorderColor: "hsl(141, 71%, 48%)",
           color: "hsl(217, 71%, 53%)",
           borderWidth: 1,
@@ -80,36 +80,36 @@ function makeChart(data, inputVal) {
         },
       ],
     },
-    options: {
-      legend: {
-        labels: {
-          fontColor: "lightgreen",
-          fontSize: 10,
-        },
-      },
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              fontColor: "lightgreen",
-              fontSize: 10,
-              precision: 0,
-              beginAtZero: true,
-            },
-          },
-        ],
-        xAxes: [
-          {
-            ticks: {
-              fontColor: "lightgreen",
-              precision: 0,
-              beginAtZero: true,
-              fontSize: 10,
-            },
-          },
-        ],
-      },
-    },
+    // options: {
+    //   legend: {
+    //     labels: {
+    //       fontColor: "lightgreen",
+    //       fontSize: 10,
+    //     },
+    //   },
+    //   scales: {
+    //     yAxes: [
+    //       {
+    //         ticks: {
+    //           fontColor: "lightgreen",
+    //           fontSize: 10,
+    //           precision: 0,
+    //           beginAtZero: true,
+    //         },
+    //       },
+    //     ],
+    //     xAxes: [
+    //       {
+    //         ticks: {
+    //           fontColor: "lightgreen",
+    //           precision: 0,
+    //           beginAtZero: true,
+    //           fontSize: 10,
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
   });
 
   return myChart;
