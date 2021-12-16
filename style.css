@@ -4,6 +4,9 @@ body {
 /* p {
   word-break: break-all;
 } */
+.collatz-head{
+    word-break: break-all;
+}
 
 .btn {
   outline: none !important;
