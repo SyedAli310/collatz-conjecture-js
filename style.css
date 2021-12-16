@@ -1,9 +1,9 @@
 body {
   background-color: #001b1b;
 }
-p {
+/* p {
   word-break: break-all;
-}
+} */
 
 .btn {
   outline: none !important;
