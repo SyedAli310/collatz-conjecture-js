@@ -61,6 +61,7 @@ a {
 .show-hide-series {
   position: sticky;
   bottom: 1rem;
+  top:1rem;
 }
 
 .show-hide-series i{
