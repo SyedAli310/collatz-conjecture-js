@@ -50,6 +50,18 @@ async function getCollatzConjectureOutput(inputVal) {
   }
 }
 
+// function to calculate the ratio of two numbers
+function calculateRatio(num_1, num_2){
+  for(num=num_2; num>1; num--) {
+      if((num_1 % num) == 0 && (num_2 % num) == 0) {
+          num_1=num_1/num;
+          num_2=num_2/num;
+      }
+  }
+  var ratio = num_1+":"+num_2;
+  return ratio;
+}
+
 // function to plot the collatz conjecture steps chart [chart.js]
 function makeChart(data, inputVal) {
   const plugin = {
@@ -191,7 +203,7 @@ async function showOutput(inp) {
       }</span>`
     );
     $(".collatz-even-odd-head").html(
-      `Even-Odd Distribution Plot<span class='text-success'></span>`
+      `Even-Odd Distribution Plot (<span class='text-success'>${calculateRatio(result.evenSteps,result.oddSteps)}</span>)`
     );
     $("#output").html(`
     <hr class="bg-light">
