@@ -1,5 +1,5 @@
 body {
-  background-color: #001b1b;
+  background-color: #1b1b1b;
 }
 a {
   text-decoration: none !important;
@@ -61,7 +61,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: #001b1b;
+  background-color: #1b1b1b;
   padding: 0.5rem 0rem;
 }
 .show-hide-series {
